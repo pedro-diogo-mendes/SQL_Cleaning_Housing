@@ -11,7 +11,7 @@ ORDER BY [UniqueID ]
 ALTER TABLE DataCleaning.dbo.NashvilleHousing
 ALTER COLUMN SaleDate DATE
 
-________________________________________________
+--________________________________________________
 
 -- Populate Property Address Data that is NULL
 -- I noticed that there are some NULL values in the "PropertyAdress" column. So I'm going to check if I can fill it out or not.
@@ -46,7 +46,7 @@ JOIN DataCleaning.dbo.NashvilleHousing AS B
 	AND A.[UniqueID ] <> B.[UniqueID ]
 WHERE A.PropertyAddress IS NULL
 
-________________________________________________
+--________________________________________________
 
 -- Breaking Out Address Into Individual Columns (Address, City) From The Collumn "PropertyAddress"
 
@@ -80,7 +80,7 @@ SET PropertyCitySplit = SUBSTRING (PropertyAddress, CHARINDEX(',', PropertyAddre
 SELECT *
 FROM DataCleaning.dbo.NashvilleHousing
 
-________________________________________________
+--________________________________________________
 
 -- Breaking Out Address Into Individual Columns (Address, City, State) From The Column "OwnerAddress"
 -- Using Another Technic
@@ -120,7 +120,7 @@ SELECT *
 FROM DataCleaning.dbo.NashvilleHousing
 
 
-________________________________________________
+--________________________________________________
 
 -- Change Y and N to Yes and No in "SoldAsVacant"
 
@@ -148,7 +148,7 @@ SET SoldAsVacant = CASE
 		END
 
 
-________________________________________________
+--________________________________________________
 
 
 -- Remove Duplicates
@@ -199,7 +199,7 @@ FROM CTE_ROW_NUM
 WHERE row_num > 1
 
 
-________________________________________________
+--________________________________________________
 
 -- Deleting unused column
 
